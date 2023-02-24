@@ -7,6 +7,7 @@ import "@/router/permission"
 // load
 import { loadSvg } from "@/icons"
 import { loadPlugins } from "@/plugins"
+import UI from "@/components/ui/index"
 // css
 import "uno.css"
 import "normalize.css"
@@ -23,4 +24,4 @@ loadPlugins(app)
 /** 加载全局 SVG */
 loadSvg(app)
 
-app.use(store).use(router).mount("#app")
+app.use(store).use(router).use(UI).mount("#app")

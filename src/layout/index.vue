@@ -28,7 +28,7 @@ const handleClickOutside = () => {
     <div v-if="classObj.mobile && classObj.openSidebar" class="drawer-bg" @click="handleClickOutside" />
     <Sidebar class="sidebar-container" />
     <div  class="main-container">
-      <div :class="{ 'fixed-header': fixedHeader }">
+      <div class="fixed-header">
         <NavigationBar />
       </div>
       <AppMain />
