@@ -103,6 +103,7 @@ const props = defineProps({
     type: String,
     default: null
   },
+  //	dark 模式, 意味着自动设置 color 为 dark 模式的颜色
   dark: {
     type: Boolean,
     default: false

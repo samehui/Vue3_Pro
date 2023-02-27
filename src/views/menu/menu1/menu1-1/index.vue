@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-card> menu 1-1 </el-card>
-    <proButton type="primary" @click="clickFn" size="small" loading >aa</proButton>
+    <pro-button type="primary" @click="clickFn" size="small"  >aa</pro-button>
     <!-- <proButton type="primary" loading>
       <template #loading>
         <div class="custom-loading">
