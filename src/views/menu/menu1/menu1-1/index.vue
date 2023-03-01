@@ -1,8 +1,9 @@
 <template>
   <div class="app-container">
     <el-card> menu 1-1 </el-card>
-    <pro-button type="primary" @click="clickFn" size="small"  >aa</pro-button>
-    <!-- <proButton type="primary" loading>
+    <pro-button type="primary" @click="clickFn" size="default"  icon="Search" link>aa</pro-button>
+    <pro-button type="primary"  loading-icon="Eleme" loading>Loading</pro-button>
+    <pro-button type="primary" loading userLoadingSlot>
       <template #loading>
         <div class="custom-loading">
           <svg class="circular" viewBox="-10, -10, 50, 50">
@@ -21,17 +22,64 @@
           </svg>
         </div>
       </template>
-      Loading
-    </proButton> -->
+      Loading1111
+    </pro-button>
+    <el-button  type="primary">
+      <el-icon class="el-icon--right"><Upload /></el-icon>Upload
+    </el-button >
+    <pro-tabs v-model:activeValue="a" :tabData="tabData">
+      <template v-for="item in tabData" #[item.name]>
+
+        <!-- <template #label>
+          <span class="custom-tabs-label">
+            <el-icon><calendar /></el-icon>
+            <span>Route</span>
+          </span>
+        </template> -->
+        <pro-button v-if="item.name=='1'" type="primary" @click="clickFn" size="default"  icon="Search" link>aa</pro-button>
+      </template>
+       <template #2>
+        <!-- <template #label>
+          <span class="custom-tabs-label">
+            <el-icon><calendar /></el-icon>
+            <span>Route</span>
+          </span>
+        </template> -->
+        Config
+      </template>
+    </pro-tabs>
+    <el-tabs type="border-card" class="demo-tabs">
+    <el-tab-pane label="Route">
+      <template #label>
+        <span class="custom-tabs-label">
+          <el-icon><calendar /></el-icon>
+          <span>Route</span>
+        </span>
+      </template>
+      Route
+    </el-tab-pane>
+    <el-tab-pane label="Config">Config</el-tab-pane>
+    <el-tab-pane label="Role">Role</el-tab-pane>
+    <el-tab-pane label="Task">Task</el-tab-pane>
+  </el-tabs>
+
   </div>
 </template>
 <script setup lang="ts">
-
-
-
+import {  watch } from "vue"
+import { ref } from 'vue'
+const tabData=ref([
+  {label:"Route",name:"1"},
+  {label:"Config",name:"2"},
+  {label:"Role",name:"3"},
+  {label:"Task",name:"4"}
+])
+const a = ref()
 const clickFn=()=>{
   console.log("11111")
 }
+
+const stop=watch(a,()=>{console.log(a.value)})
 </script>
 
 

@@ -18,7 +18,11 @@
 		:color="color"
 		:dark="dark"
 		>
-			<slot></slot>
+      <template #loading v-if="userLoadingSlot&&loading">
+        <slot name="loading"></slot>
+      </template>
+			<slot name="default"></slot>
+      
 	</el-button>
 </template>
 <script setup lang="ts">
@@ -103,8 +107,13 @@ const props = defineProps({
     type: String,
     default: null
   },
-  //	dark 模式, 意味着自动设置 color 为 dark 模式的颜色
+  //dark 模式, 意味着自动设置 color 为 dark 模式的颜色
   dark: {
+    type: Boolean,
+    default: false
+  },
+  //是否使用自定义loading插槽
+  userLoadingSlot: {
     type: Boolean,
     default: false
   }
