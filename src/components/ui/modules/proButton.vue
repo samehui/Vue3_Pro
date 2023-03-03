@@ -18,14 +18,24 @@
 		:color="color"
 		:dark="dark"
 		>
-      <template #loading v-if="userLoadingSlot&&loading">
+      <template #loading v-if="isUserLoadingSlot&&loading">
         <slot name="loading"></slot>
       </template>
-			<slot name="default"></slot>
-      
+      <template #default v-if="isUseDefault">
+        <slot name="default"></slot>
+      </template>
 	</el-button>
 </template>
 <script setup lang="ts">
+import {onMounted,useSlots,ref} from 'vue'
+const isUserLoadingSlot = ref<Boolean>(false)
+const isUseDefault = ref<Boolean>(false)
+const slots = useSlots()
+onMounted(() => {
+  isUseDefault.value = slots.default ? true : false
+  isUserLoadingSlot.value = slots.loading ? true : false
+})
+
 const props = defineProps({
   //尺寸，取值：'large'| 'default'| 'small'
   size: {
@@ -109,11 +119,6 @@ const props = defineProps({
   },
   //dark 模式, 意味着自动设置 color 为 dark 模式的颜色
   dark: {
-    type: Boolean,
-    default: false
-  },
-  //是否使用自定义loading插槽
-  userLoadingSlot: {
     type: Boolean,
     default: false
   }

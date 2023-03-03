@@ -27,42 +27,20 @@
     <el-button  type="primary">
       <el-icon class="el-icon--right"><Upload /></el-icon>Upload
     </el-button >
-    <pro-tabs v-model:activeValue="a" :tabData="tabData">
-      <template v-for="item in tabData" #[item.name]>
-
-        <!-- <template #label>
+    <pro-tabs v-model:activeValue="a" type="border-card">
+      <pro-tab-pane label="User" customTabName>
+        <template #label>
           <span class="custom-tabs-label">
             <el-icon><calendar /></el-icon>
             <span>Route</span>
           </span>
-        </template> -->
-        <pro-button v-if="item.name=='1'" type="primary" @click="clickFn" size="default"  icon="Search" link>aa</pro-button>
-      </template>
-       <template #2>
-        <!-- <template #label>
-          <span class="custom-tabs-label">
-            <el-icon><calendar /></el-icon>
-            <span>Route</span>
-          </span>
-        </template> -->
-        Config
-      </template>
+        </template>
+        User
+      </pro-tab-pane>
+      <pro-tab-pane label="Config">Config</pro-tab-pane>
+      <pro-tab-pane label="Role" name="Role">Role</pro-tab-pane>
+      <pro-tab-pane label="Task" name="fourth">Task</pro-tab-pane>  
     </pro-tabs>
-    <el-tabs type="border-card" class="demo-tabs">
-    <el-tab-pane label="Route">
-      <template #label>
-        <span class="custom-tabs-label">
-          <el-icon><calendar /></el-icon>
-          <span>Route</span>
-        </span>
-      </template>
-      Route
-    </el-tab-pane>
-    <el-tab-pane label="Config">Config</el-tab-pane>
-    <el-tab-pane label="Role">Role</el-tab-pane>
-    <el-tab-pane label="Task">Task</el-tab-pane>
-  </el-tabs>
-
   </div>
 </template>
 <script setup lang="ts">

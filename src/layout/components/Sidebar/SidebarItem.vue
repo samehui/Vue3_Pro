@@ -63,6 +63,7 @@ const resolvePath = (routePath: string) => {
   }
   return path.resolve(props.basePath, routePath)
 }
+
 </script>
 
 <template>

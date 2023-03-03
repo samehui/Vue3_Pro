@@ -4,6 +4,7 @@ import App from "@/App.vue"
 import store from "@/store"
 import router from "@/router"
 import "@/router/permission"
+import * as Icons from "@element-plus/icons-vue"
 // load
 import { loadSvg } from "@/icons"
 import { loadPlugins } from "@/plugins"

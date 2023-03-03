@@ -22,13 +22,41 @@ export const constantRoutes: RouteRecordRaw[] = [
     ]
   },
   {
+    path: "/basicComponents",
+    component: Layout,
+    redirect: "/basicComponents/proButtonInfo",
+    name: "BasicComponents",
+    meta: {
+      title: "基础组件",
+      elIcon: "Menu"
+    },
+    children: [
+      {
+        path: "proButtonInfo",
+        component: () => import("@/views/proButtonInfo/index.vue"),
+        name: "proButtonInfo",
+        meta: {
+          title: "Button 按钮"
+        }
+      },
+      {
+        path: "proTabsInfo",
+        component: () => import("@/views/proTabsInfo/index.vue"),
+        name: "proTabsInfo",
+        meta: {
+          title: "Tabs 标签页"
+        }
+      }
+    ]
+  },
+  {
     path: "/menu",
     component: Layout,
     redirect: "/menu/menu1",
     name: "Menu",
     meta: {
       title: "多级菜单",
-      svgIcon: "menu"
+      elIcon: "Menu"
     },
     children: [
       {
