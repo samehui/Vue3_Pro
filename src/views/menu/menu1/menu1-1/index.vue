@@ -3,7 +3,7 @@
     <el-card> menu 1-1 </el-card>
     <pro-button type="primary" @click="clickFn" size="default"  icon="Search" link>aa</pro-button>
     <pro-button type="primary"  loading-icon="Eleme" loading>Loading</pro-button>
-    <pro-button type="primary" loading userLoadingSlot>
+    <pro-button type="primary" loading>
       <template #loading>
         <div class="custom-loading">
           <svg class="circular" viewBox="-10, -10, 50, 50">
@@ -27,8 +27,8 @@
     <el-button  type="primary">
       <el-icon class="el-icon--right"><Upload /></el-icon>Upload
     </el-button >
-    <pro-tabs v-model:activeValue="a" type="border-card">
-      <pro-tab-pane label="User" customTabName>
+    <pro-tabs v-model="a" type="border-card" @tab-click="handleClick">
+      <pro-tab-pane label="User">
         <template #label>
           <span class="custom-tabs-label">
             <el-icon><calendar /></el-icon>
@@ -38,14 +38,23 @@
         User
       </pro-tab-pane>
       <pro-tab-pane label="Config">Config</pro-tab-pane>
-      <pro-tab-pane label="Role" name="Role">Role</pro-tab-pane>
+      <pro-tab-pane label="Role" name="Role">Role11</pro-tab-pane>
       <pro-tab-pane label="Task" name="fourth">Task</pro-tab-pane>  
     </pro-tabs>
+    <pro-row class="my-4">
+      <pro-button size="large" round>Large</pro-button>
+      <pro-button round>Default</pro-button>
+      <pro-button size="small" round>Small</pro-button>
+      <pro-button size="large" icon="Search" round>Search</pro-button>
+      <pro-button icon="Search" round>Search</pro-button>
+      <pro-button size="small" icon="Search" round>Search</pro-button>
+    </pro-row>
   </div>
 </template>
 <script setup lang="ts">
 import {  watch } from "vue"
 import { ref } from 'vue'
+import type { TabsPaneContext } from 'element-plus'
 const tabData=ref([
   {label:"Route",name:"1"},
   {label:"Config",name:"2"},
@@ -58,6 +67,10 @@ const clickFn=()=>{
 }
 
 const stop=watch(a,()=>{console.log(a.value)})
+
+const handleClick = (tab: TabsPaneContext, event: Event) => {
+  console.log(tab, event)
+}
 </script>
 
 

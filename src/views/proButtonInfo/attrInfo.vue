@@ -1,16 +1,16 @@
 <template>
 	<h2 class='title'>Button 属性</h2>
-	<el-table :data="tableData" border style="width: 100%">
-		<el-table-column prop="attrName" label="属性名" width="180" />
-		<el-table-column prop="attrInfo" label="说明" />
-		<el-table-column prop="attrType" label="类型" width="100" />
-		<el-table-column prop="attrDefault" label="默认值" width="100" />
-	</el-table>
+	<pro-table :data="tableData" border style="width: 100%">
+		<pro-table-column prop="attrName" label="属性名" width="180" />
+		<pro-table-column prop="attrInfo" label="说明" />
+		<pro-table-column prop="attrType" label="类型" width="100" />
+		<pro-table-column prop="attrDefault" label="默认值" width="100" />
+	</pro-table>
 	<h2 class='title'>Button 插槽</h2>
-	<el-table :data="sloteData" border style="width: 100%">
-		<el-table-column prop="sloteName" label="插槽名" width="180" />
-		<el-table-column prop="sloteInfo" label="说明" />
-	</el-table>
+	<pro-table :data="sloteData" border style="width: 100%">
+		<pro-table-column prop="sloteName" label="插槽名" width="180" />
+		<pro-table-column prop="sloteInfo" label="说明" />
+	</pro-table>
 </template>
 <script setup lang="ts">
 const tableData = [
