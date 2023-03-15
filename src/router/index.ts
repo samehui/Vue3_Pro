@@ -40,11 +40,63 @@ export const constantRoutes: RouteRecordRaw[] = [
         }
       },
       {
+        path: "proRowInfo",
+        component: () => import("@/views/proRowInfo/index.vue"),
+        name: "proRowInfo",
+        meta: {
+          title: "Layout 布局"
+        }
+      },
+      {
         path: "proTabsInfo",
         component: () => import("@/views/proTabsInfo/index.vue"),
         name: "proTabsInfo",
         meta: {
           title: "Tabs 标签页"
+        }
+      },
+      {
+        path: "proIconInfo",
+        component: () => import("@/views/proIconInfo/index.vue"),
+        name: "proIconInfo",
+        meta: {
+          title: "Icon 图标"
+        }
+      }
+    ]
+  },
+  {
+    path: "/showDataComponents",
+    component: Layout,
+    redirect: "/showDataComponents/proTableInfo",
+    name: "ShowDataComponents",
+    meta: {
+      title: "数据展示组件",
+      elIcon: "Menu"
+    },
+    children: [
+      {
+        path: "proTableInfo",
+        component: () => import("@/views/proTableInfo/index.vue"),
+        name: "proTableInfo",
+        meta: {
+          title: "Table 表格"
+        }
+      },
+      {
+        path: "proCardInfo",
+        component: () => import("@/views/proCardInfo/index.vue"),
+        name: "proCardInfo",
+        meta: {
+          title: "Card 卡片"
+        }
+      },
+      {
+        path: "proCollapseInfo",
+        component: () => import("@/views/proCollapseInfo/index.vue"),
+        name: "proCollapseInfo",
+        meta: {
+          title: "Collapse 折叠面板"
         }
       }
     ]

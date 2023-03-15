@@ -1,5 +1,5 @@
 <template>
-  <el-tabs class="demo-tabs" v-model="_modelValue">
+  <el-tabs v-model="_modelValue">
     <slot></slot>
   </el-tabs>
 </template>
