@@ -2,37 +2,67 @@
 <pro-collapse>
 <pro-collapse-item title="代码" name="1">
 	
-<pre><textarea class="codeText" disabled rows="33" v-pre>
+<pre><textarea class="codeText" disabled rows="62" v-pre>
 <template>
-  <pro-row :gutter="10">
-    <pro-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content ep-bg-purple"/></pro-col>
-    <pro-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content ep-bg-purple-light"/></pro-col>
-    <pro-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content ep-bg-purple"/></pro-col>
-    <pro-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content ep-bg-purple-light"/></pro-col>
-  </pro-row>
+  <pro-table :data="tableData" style="width: 100%">
+    <pro-table-column fixed prop="date" label="Date" width="150" />
+    <pro-table-column prop="name" label="Name" width="120" />
+    <pro-table-column prop="state" label="State" width="120" />
+    <pro-table-column prop="city" label="City" width="120" />
+    <pro-table-column prop="address" label="Address" width="600" />
+    <pro-table-column prop="zip" label="Zip" width="120" />
+    <pro-table-column fixed="right" label="Operations" width="120">
+      <template #default>
+        <pro-button link type="primary" size="small" @click="handleClick">Detail</pro-button>
+        <pro-button link type="primary" size="small">Edit</pro-button>
+      </template>
+    </pro-table-column>
+  </pro-table>
 </template>
 
-<style lang="scss" scoped>
-.el-row {
-  margin-bottom: 20px;
-}
-.el-row:last-child {
-  margin-bottom: 0;
-}
-.el-col {
-  border-radius: 4px;
-}
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
-}
-.ep-bg-purple {
-  background: #d3dce6;
-}
-.ep-bg-purple-light {
-  background: #e5e9f2;
-}
-</style>
+<script lang="ts" setup>
+  const tableData = [
+    {
+      date: '2016-05-03',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Home',
+    },
+    {
+      date: '2016-05-02',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Office',
+    },
+    {
+      date: '2016-05-04',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Home',
+    },
+    {
+      date: '2016-05-01',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Office',
+    }
+  ]
+  const handleClick = () => {
+    console.log('click')
+  }
+</script>
 </textarea></pre>
 </pro-collapse-item>
 </pro-collapse>

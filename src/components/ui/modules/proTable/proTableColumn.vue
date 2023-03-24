@@ -3,8 +3,8 @@
     <template #header v-if="isUserHeaderSlot">
       <slot name="header"></slot>
     </template>
-		<template #default v-if="isUseDefault">
-      <slot name="default"></slot>
+		<template #default="scope" v-if="isUseDefault">
+      <slot name="default"  v-bind="scope"></slot>
     </template>
   </el-table-column>
 </template>

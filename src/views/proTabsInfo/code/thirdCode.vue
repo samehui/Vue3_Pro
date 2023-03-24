@@ -2,7 +2,7 @@
 <pro-collapse>
 <pro-collapse-item title="代码" name="1">
 	
-<pre><textarea class="codeText" disabled rows="43" v-pre>
+<pre><textarea class="codeText" disabled rows="30" v-pre>
 <template>
   <pro-row class="my-4">
     <pro-button @click="tabPosition = 'top'">top</pro-button>

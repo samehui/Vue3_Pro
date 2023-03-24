@@ -1,39 +1,66 @@
 <template>
 <pro-collapse>
-<pro-collapse-item title="代码" name="1">
-	
-<pre><textarea class="codeText" disabled rows="34" v-pre>
+<pro-collapse-item title="代码" name="1">	
+<pre><textarea class="codeText" disabled rows="62" v-pre>
 <template>
-  <pro-row :gutter="20">
-    <pro-col :span="6"><div class="grid-content ep-bg-purple" /></pro-col>
-    <pro-col :span="6" :offset="6"><div class="grid-content ep-bg-purple"/></pro-col>
-  </pro-row>
-  <pro-row :gutter="20">
-    <pro-col :span="6" :offset="6"><div class="grid-content ep-bg-purple"/></pro-col>
-    <pro-col :span="6" :offset="6"><div class="grid-content ep-bg-purple"/></pro-col>
-  </pro-row>
-  <pro-row :gutter="20">
-    <pro-col :span="12" :offset="6"><div class="grid-content ep-bg-purple"/></pro-col>
-  </pro-row>
+  <pro-table
+    :data="tableData"
+    style="width: 100%"
+    :row-class-name="tableRowClassName"
+  >
+    <pro-table-column prop="date" label="Date" width="180" />
+    <pro-table-column prop="name" label="Name" width="180" />
+    <pro-table-column prop="address" label="Address" />
+  </pro-table>
 </template>
 
+<script lang="ts" setup>
+  const tableData = [
+    {
+      date: '2016-05-03',
+      name: 'Tom',
+      address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+      date: '2016-05-02',
+      name: 'John',
+      address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+      date: '2016-05-04',
+      name: 'Morgan',
+      address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+      date: '2016-05-01',
+      name: 'Jessy',
+      address: 'No. 189, Grove St, Los Angeles',
+    }
+  ]
+
+  const tableRowClassName = ({
+    row,
+    rowIndex,
+  }: {
+    row: User
+    rowIndex: number
+  }) => {
+    if (rowIndex === 1) {
+      return 'warning-row'
+    } else if (rowIndex === 3) {
+      return 'success-row'
+    }
+    return ''
+  }
+</script>
+
 <style lang="scss" scoped>
-.el-row {
-  margin-bottom: 20px;
-}
-.el-row:last-child {
-  margin-bottom: 0;
-}
-.el-col {
-  border-radius: 4px;
-}
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
-}
-.ep-bg-purple {
-  background: #d3dce6;
-}
+  .el-table ::v-deep .warning-row {
+    background-color: #fdf6ec;
+  }
+  .el-table ::v-deep .success-row {
+    background-color: #f0f9eb;
+  }
 </style>
 </textarea></pre>
 </pro-collapse-item>
