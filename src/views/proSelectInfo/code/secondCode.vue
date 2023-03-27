@@ -1,11 +1,14 @@
 <template>
 <pro-collapse>
 <pro-collapse-item title="代码" name="1">
-	
 <pre><textarea class="codeText" disabled rows="59" v-pre>
 <template>
-  <pro-collapse v-model="activeNames" @change="handleChange">
-    <pro-collapse-item title="Consistency" name="1">
+  <pro-collapse v-model="activeName" accordion>
+    <pro-collapse-item name="1">
+      <template #title>
+          Consistency
+          <pro-icon icon="info-filled" />
+        </template>
       <div>
         Consistent with real life: in line with the process and logic of real
         life, and comply with languages and habits that the users are used to;
@@ -54,11 +57,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-
-  const activeNames = ref(['1'])
-  const handleChange = (val: string[]) => {
-    console.log(val)
-  }
+  const activeName = ref('1')
 </script>
 </textarea></pre>
 </pro-collapse-item>
@@ -66,9 +65,6 @@
 </template>
 
 <style lang="scss" scoped>
-.paddingLeft10{
-	width: 100%
-}
 .codeText{
 	line-height: 1.5;
 	color: #ccc;

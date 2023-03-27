@@ -66,6 +66,34 @@ export const constantRoutes: RouteRecordRaw[] = [
     ]
   },
   {
+    path: "/formComponents",
+    component: Layout,
+    redirect: "/formComponents/proInputInfo",
+    name: "FormComponents",
+    meta: {
+      title: "表单组件",
+      elIcon: "Menu"
+    },
+    children: [
+      {
+        path: "proInputInfo",
+        component: () => import("@/views/proInputInfo/index.vue"),
+        name: "proInputInfo",
+        meta: {
+          title: "Input 输入框"
+        }
+      },
+      {
+        path: "proSelectInfo",
+        component: () => import("@/views/proSelectInfo/index.vue"),
+        name: "proSelectInfo",
+        meta: {
+          title: "Select 选择器"
+        }
+      }
+    ]
+  },
+  {
     path: "/showDataComponents",
     component: Layout,
     redirect: "/showDataComponents/proTableInfo",

@@ -1,6 +1,6 @@
 <template>
 	<el-button>
-    <template #loading v-if="isUserLoadingSlot">
+    <template #loading v-if="isUseLoadingSlot">
       <slot name="loading"></slot>
     </template>
     <template #default v-if="isUseDefault">
@@ -10,11 +10,11 @@
 </template>
 <script setup lang="ts">
   import {onMounted,useSlots,ref} from 'vue'
-  const isUserLoadingSlot = ref<Boolean>(false)
+  const isUseLoadingSlot = ref<Boolean>(false)
   const isUseDefault = ref<Boolean>(false)
   const slots = useSlots()
   onMounted(() => {
     isUseDefault.value = slots.default ? true : false
-    isUserLoadingSlot.value = slots.loading ? true : false
+    isUseLoadingSlot.value = slots.loading ? true : false
   })
 </script>
