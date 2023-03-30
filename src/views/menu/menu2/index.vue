@@ -17,7 +17,17 @@
       <pro-button @click="setCurrent(tableData[1])">选中第二行</pro-button>
       <pro-button @click="setCurrent()">清空选中行</pro-button>
     </div>
-    <textarea class="codeText"  rows="77" ></textarea>
+    <pro-input v-model="input6" type="textarea" class="w-50 m-2" placeholder="Pick a date">
+      <template #suffix>
+        <pro-icon icon="Calendar"  />
+      </template>
+      <template #prepend>
+        ddd
+      </template>
+      <template #append>
+        ee
+      </template>
+    </pro-input>
   </div>
 </template>
 
@@ -81,4 +91,5 @@
     singleTableRef.value!.setCurrentRow(row)
     singleTableRef.value!.setScrollTop(10)
   }
+  const input6 = ref("")
 </script>

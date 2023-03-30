@@ -1,9 +1,14 @@
 <template>
 <pro-collapse>
 <pro-collapse-item title="代码" name="1">
-<pre><textarea class="codeText" disabled rows="10" v-pre>
+<pre><textarea class="codeText" disabled rows="15" v-pre>
 <template>
-  <pro-input v-model="input" disabled placeholder="请输入" />
+  <pro-input
+    v-model="input"
+    placeholder="请输入"
+    :formatter="(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
+    :parser="(value) => value.replace(/\$\s?|(,*)/g, '')"
+  />
 </template>
 
 <script lang="ts" setup>

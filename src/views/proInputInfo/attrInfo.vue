@@ -12,6 +12,11 @@
 		<pro-table-column prop="eventInfo" label="说明" />
 		<pro-table-column prop="callbackParams" label="回调参数" width="250" />
 	</pro-table>
+  <h2 class='title'>Input 插槽</h2>
+	<pro-table :data="inputSloteData" border style="width: 100%">
+		<pro-table-column prop="sloteName" label="插槽名" width="180" />
+		<pro-table-column prop="sloteInfo" label="说明" />
+	</pro-table>
 </template>
 <script setup lang="ts">
 const InputAttrData = [
@@ -205,6 +210,25 @@ const InputEventData = [
     eventInfo: '在点击由 clearable 属性生成的清空按钮时触发',
     callbackParams:'() => void'
   }
+]
+
+const inputSloteData = [
+	{
+		sloteName: 'prefix',
+    sloteInfo: '输入框头部内容，只对非 type="textarea" 有效',
+	},
+	{
+		sloteName: 'suffix',
+    sloteInfo: '输入框尾部内容，只对非 type="textarea" 有效',
+	},
+	{
+		sloteName: 'prepend',
+    sloteInfo: '输入框尾部内容，只对非 type="textarea" 有效',
+	},
+	{
+		sloteName: 'append',
+    sloteInfo: '输入框尾部内容，只对非 type="textarea" 有效',
+	}
 ]
 </script>
 
